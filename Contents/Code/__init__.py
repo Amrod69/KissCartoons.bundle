@@ -5,24 +5,24 @@
 ######################################################################################
 
 TITLE = "Kiss Cartoons"
-PREFIX = "/video/kisscartoons"
+PREFIX = "/video/Kimcartoons"
 ART = "art-default.jpg"
 ICON = "icon-default.png"
 ICON_SERIES = "icon-tv.png"
 ICON_NEXT = "icon-next.png"
-BASE_URL = "http://kisscartoon.me"
-SEARCH_URL = "http://kisscartoon.me/Search/Cartoon"
+BASE_URL = "http://kimcartoon.me"
+SEARCH_URL = "http://kimcartoon.me/Search/Cartoon"
 
 import os
 import sys
 from lxml import html
 import updater
-updater.init(repo = '/jwsolve/KissCartoons.bundle', branch = 'master')
+updater.init(repo = '/jwsolve/Kimcartoons.bundle', branch = 'master')
 
 try:
-	path = os.getcwd().split("?\\")[1].split('Plug-in Support')[0]+"Plug-ins/KissCartoons.bundle/Contents/Code/Modules/KissCartoons"
+	path = os.getcwd().split("?\\")[1].split('Plug-in Support')[0]+"Plug-ins/Kimcartoons.bundle/Contents/Code/Modules/Kimcartoons"
 except:
-	path = os.getcwd().split("Plug-in Support")[0]+"Plug-ins/KissCartoons.bundle/Contents/Code/Modules/KissCartoons"
+	path = os.getcwd().split("Plug-in Support")[0]+"Plug-ins/Kimcartoons.bundle/Contents/Code/Modules/Kimcartoons"
 if path not in sys.path:
 	sys.path.append(path)
 
@@ -42,8 +42,8 @@ def Start():
 	VideoClipObject.art = R(ART)
 
 	HTTP.Headers['User-Agent'] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36"
-	HTTP.Headers['Host'] = "kisscartoon.me"
-	HTTP.Headers['Referer'] = "kisscartoon.me"
+	HTTP.Headers['Host'] = "kimcartoon.me"
+	HTTP.Headers['Referer'] = "kimcartoon.me"
 	
 ######################################################################################
 # Menu hierarchy
@@ -61,7 +61,7 @@ def Shows():
 
 	container = ObjectContainer()
 	updater.add_button_to(container, PerformUpdate)
-	container.add(InputDirectoryObject(key = Callback(Search), title='Search', summary='Search Kisscartoon', prompt='Search for...'))
+	container.add(InputDirectoryObject(key = Callback(Search), title='Search', summary='Search Kimcartoon', prompt='Search for...'))
 	page = scraper.get(BASE_URL + '/CartoonList')
 	page_data = html.fromstring(page.text)
 
